@@ -2,15 +2,14 @@ package com.dragonlin.hanashopapi.entities;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "tblOrderDetails")
 @Data
-public class OrderDetailEntity {
+@IdClass(OrderDetailEntity.class)
+public class OrderDetailEntity implements Serializable {
     @Id
     @Column(columnDefinition = "orderId")
     private String orderId;
