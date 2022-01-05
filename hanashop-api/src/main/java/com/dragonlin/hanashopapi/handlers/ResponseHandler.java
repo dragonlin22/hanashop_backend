@@ -1,6 +1,6 @@
 package com.dragonlin.hanashopapi.handlers;
 
-import com.dragonlin.hanashopapi.dtos.ResponseWrapperDTO;
+import com.dragonlin.hanashopapi.dtos.response.ResponseWrapperDTO;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;

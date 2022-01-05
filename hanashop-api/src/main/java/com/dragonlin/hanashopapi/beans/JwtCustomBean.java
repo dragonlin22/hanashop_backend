@@ -1,6 +1,5 @@
 package com.dragonlin.hanashopapi.beans;
 
-import com.dragonlin.hanashopapi.dtos.AuthenResponseDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import io.jsonwebtoken.*;
@@ -15,9 +14,9 @@ public class JwtCustomBean {
     @Value("${jwt.custom.expired}")
     private long expired;
 
-    public String generateJwtToken(AuthenResponseDTO authenResponseDTO) {
+    public String generateJwtToken(String userId) {
         return Jwts.builder()
-                .setSubject(authenResponseDTO.getId())
+                .setSubject(userId)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime()+expired))
                 .signWith(SignatureAlgorithm.HS256,key)

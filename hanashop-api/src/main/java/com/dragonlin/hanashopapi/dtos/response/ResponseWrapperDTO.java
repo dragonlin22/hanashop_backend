@@ -1,4 +1,4 @@
-package com.dragonlin.hanashopapi.dtos;
+package com.dragonlin.hanashopapi.dtos.response;
 
 import lombok.Data;
 
