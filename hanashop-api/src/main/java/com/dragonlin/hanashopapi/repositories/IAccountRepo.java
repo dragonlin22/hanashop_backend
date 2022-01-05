@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IAccountRepo extends JpaRepository<AccountEntity,String> {
     AccountEntity findByEmailAndStatus(String email,Boolean status);
+    AccountEntity findByEmail(String email);
+
 }

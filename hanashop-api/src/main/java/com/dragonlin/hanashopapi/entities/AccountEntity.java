@@ -19,6 +19,6 @@ public class AccountEntity {
     private String phone;
     private String address;
     private String role;
-    private String status;
+    private boolean status;
     private String password;
 }

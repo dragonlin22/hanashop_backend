@@ -5,6 +5,8 @@ import com.dragonlin.hanashopapi.constants.PathConstant;
 import com.dragonlin.hanashopapi.constants.StringConstant;
 import com.dragonlin.hanashopapi.dtos.authen.AuthenResponseDTO;
 import com.dragonlin.hanashopapi.dtos.authen.LoginDTO;
+import com.dragonlin.hanashopapi.dtos.authen.RegistDTO;
+import com.dragonlin.hanashopapi.dtos.response.ResponseWrapperDTO;
 import com.dragonlin.hanashopapi.services.IAuthenService;
 import com.dragonlin.hanashopapi.utils.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +44,17 @@ public class AuthenAPI extends BaseAPI{
         return ResponseEntity.badRequest().build();
     }
     @PostMapping("/regist")
-    public ResponseEntity regist(){
-        authenService.regist();
-        return ResponseEntity.ok().build();
+    public ResponseEntity regist(@RequestBody RegistDTO registDTO){
+        String id=authenService.regist(registDTO);
+        ResponseWrapperDTO responseWrapperDTO= new ResponseWrapperDTO();
+        if(id!=null){
+            responseWrapperDTO.setData(id);
+            responseWrapperDTO.setStatus(true);
+            return ResponseEntity.ok().body(responseWrapperDTO);
+        }
+        responseWrapperDTO.setStatus(false);
+        responseWrapperDTO.setMessage("email existed!");
+        return ResponseEntity.badRequest().body(responseWrapperDTO);
     }
     @PostMapping("/login/google")
     public  ResponseEntity loginGoogle(){
