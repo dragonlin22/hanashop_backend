@@ -27,21 +27,19 @@ public class ProductService implements IProductService {
     IProductRepo productRepo;
     @Autowired
     IImageService imageService;
-    public String save(ProductDTO blogDTO, List<MultipartFile> images) throws Exception {
-        ProductEntity productEntity= modelMapper.map(blogDTO,ProductEntity.class);
-        if(!StringUtils.hasLength(blogDTO.getId())){
+    public String save(ProductDTO productDTO, List<MultipartFile> images) throws Exception {
+        ProductEntity productEntity= modelMapper.map(productDTO,ProductEntity.class);
+        if(!StringUtils.hasLength(productDTO.getId())){
             String id= UUID.randomUUID().toString();
             productEntity.setId(id);
             productEntity.setCreateAt(new Timestamp(Calendar.getInstance().getTimeInMillis()));
         }
-
         productRepo.save(productEntity);
         if(images!=null){
             Map<String,String> path= imageService.saveImage(productEntity.getId(),images, FileConstant.PRODUCT_IMAGE_FOLDER_PREFIX, PathConstant.PRODUCT_PATH_IMAGE);
             //
-            path.get(images.get(0).getOriginalFilename());
-            //
-            productRepo.save(productEntity);
+            String s=path.get(images.get(0).getOriginalFilename());
+            // luu hinh
         }
         return productEntity.getId();
     }

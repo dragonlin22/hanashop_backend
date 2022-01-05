@@ -18,6 +18,7 @@ public class RequestHandler implements HandlerInterceptor {
     JwtCustomBean jwtCustomBean;
     @Value("${host.frontend.uri}")
     String hostFrontend;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         response.setHeader("Access-Control-Allow-Origin", hostFrontend);
@@ -25,13 +26,9 @@ public class RequestHandler implements HandlerInterceptor {
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "*");
         response.addHeader("Access-Control-Expose-Headers", StringConstant.AUTH_TOKEN);
-        if (
-                !request.getServletPath().contains("auth")
-                        || request.getServletPath().contains("editor")
-                        || request.getServletPath().contains("authen")
-                        || request.getServletPath().contains("chat")
-                        || request.getServletPath().contains("app")
-        ) {
+
+        // localhost:8080/authen/login
+        if (!request.getServletPath().contains("auth")) {
             return true;
         }
         if (request.getMethod().equals("OPTIONS")) {

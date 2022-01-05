@@ -6,6 +6,7 @@ import com.dragonlin.hanashopapi.constants.StringConstant;
 import com.dragonlin.hanashopapi.dtos.authen.AuthenResponseDTO;
 import com.dragonlin.hanashopapi.dtos.authen.LoginDTO;
 import com.dragonlin.hanashopapi.services.IAuthenService;
+import com.dragonlin.hanashopapi.utils.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +36,7 @@ public class AuthenAPI extends BaseAPI{
             responseHeaders.set(StringConstant.AUTH_TOKEN,token);
             exposeHeader.add(StringConstant.AUTH_TOKEN);
             responseHeaders.setAccessControlExposeHeaders(exposeHeader);
+            LogUtil.log(this.getClass(),"login",LogUtil.INFO);
             return ResponseEntity.ok().headers(responseHeaders).body(authenResponseDTO);
         }
         return ResponseEntity.badRequest().build();

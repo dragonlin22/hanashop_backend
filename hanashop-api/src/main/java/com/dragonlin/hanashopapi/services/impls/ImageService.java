@@ -53,7 +53,6 @@ public class ImageService implements IImageService {
         }
         return paths;
     }
-
     private String serverPathImage(String itemId, String imageName, String prefixPath) {
         return hostUri+"/"+serviceName+contextPath+"/image" + "/" + prefixPath + "/" + itemId + "/" + imageName;
     }
