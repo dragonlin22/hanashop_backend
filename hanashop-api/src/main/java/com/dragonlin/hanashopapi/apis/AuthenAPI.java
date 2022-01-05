@@ -1,6 +1,8 @@
 package com.dragonlin.hanashopapi.apis;
 
+import com.dragonlin.hanashopapi.beans.JwtCustomBean;
 import com.dragonlin.hanashopapi.constants.PathConstant;
+import com.dragonlin.hanashopapi.constants.StringConstant;
 import com.dragonlin.hanashopapi.dtos.authen.AuthenResponseDTO;
 import com.dragonlin.hanashopapi.dtos.authen.LoginDTO;
 import com.dragonlin.hanashopapi.services.IAuthenService;
@@ -21,14 +23,14 @@ import java.util.List;
 public class AuthenAPI extends BaseAPI{
     @Autowired
     private IAuthenService authenService;
+    @Autowired
+    JwtCustomBean jwtCustomBean;
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid LoginDTO loginDTO){
         AuthenResponseDTO authenResponseDTO= authenService.login(loginDTO);
         if (authenResponseDTO != null) {
             List<String> exposeHeader= new ArrayList();
-            String token= jwtCustomBean.generateJwtToken(authenResponseDTO);
-            RefreshTokenEntity refreshTokenEntity= refreshTokenService.createRefreshToken(authenResponseDTO.getId());
-            authenResponseDTO.setRefreshToken(refreshTokenEntity);
+            String token= jwtCustomBean.generateJwtToken(authenResponseDTO.getId());
             HttpHeaders responseHeaders = new HttpHeaders();
             responseHeaders.set(StringConstant.AUTH_TOKEN,token);
             exposeHeader.add(StringConstant.AUTH_TOKEN);
@@ -36,7 +38,6 @@ public class AuthenAPI extends BaseAPI{
             return ResponseEntity.ok().headers(responseHeaders).body(authenResponseDTO);
         }
         return ResponseEntity.badRequest().build();
-        return ResponseEntity.ok().build();
     }
     @PostMapping("/regist")
     public ResponseEntity regist(){
