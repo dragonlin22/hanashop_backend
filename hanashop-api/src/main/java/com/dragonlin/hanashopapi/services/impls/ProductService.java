@@ -2,7 +2,7 @@ package com.dragonlin.hanashopapi.services.impls;
 
 import com.dragonlin.hanashopapi.constants.FileConstant;
 import com.dragonlin.hanashopapi.constants.PathConstant;
-import com.dragonlin.hanashopapi.dtos.ProductDTO;
+import com.dragonlin.hanashopapi.dtos.product.ProductDTO;
 import com.dragonlin.hanashopapi.entities.ProductEntity;
 import com.dragonlin.hanashopapi.repositories.IProductRepo;
 import com.dragonlin.hanashopapi.services.IImageService;

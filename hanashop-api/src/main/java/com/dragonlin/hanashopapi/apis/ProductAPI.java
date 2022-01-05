@@ -1,7 +1,7 @@
 package com.dragonlin.hanashopapi.apis;
 
 import com.dragonlin.hanashopapi.constants.PathConstant;
-import com.dragonlin.hanashopapi.dtos.ProductDTO;
+import com.dragonlin.hanashopapi.dtos.product.ProductDTO;
 import com.dragonlin.hanashopapi.services.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

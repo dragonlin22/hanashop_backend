@@ -1,6 +1,6 @@
 package com.dragonlin.hanashopapi.services;
 
-import com.dragonlin.hanashopapi.dtos.ProductDTO;
+import com.dragonlin.hanashopapi.dtos.product.ProductDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
