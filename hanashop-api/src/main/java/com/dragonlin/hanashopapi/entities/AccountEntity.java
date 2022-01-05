@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "tblaccounts")
 public class AccountEntity {
     @Id
-    @Column(name = "userId")
+    @Column(name = "userid")
     private String id;
     private String name;
     private String email;

@@ -11,10 +11,10 @@ import java.io.Serializable;
 @IdClass(OrderDetailEntity.class)
 public class OrderDetailEntity implements Serializable {
     @Id
-    @Column(name = "orderId")
+    @Column(name = "orderid")
     private String orderId;
     @Id
-    @Column(name = "productId")
+    @Column(name = "productid")
     private String productId;
     private int quantity;
     private double price;

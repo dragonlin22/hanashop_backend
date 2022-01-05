@@ -13,8 +13,8 @@ import javax.persistence.Table;
 public class ImageEntity {
     @Id
     private String id;
-    @Column(name = "sourceAddress")
+    @Column(name = "sourceaddress")
     private String sourceAddres;
-    @Column(name = "productId")
+    @Column(name = "productid")
     private String productId;
 }

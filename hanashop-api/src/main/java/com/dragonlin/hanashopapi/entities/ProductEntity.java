@@ -16,11 +16,11 @@ public class ProductEntity {
     private String id;
     private String name;
     private String status;
-    @Column(name = "createDate")
+    @Column(name = "createdate")
     private Date createAt;
     private int quantity;
     private double price;
-    @Column(name = "categoryId")
+    @Column(name = "categoryid")
     private String categoryId;
     private String description;
 }
