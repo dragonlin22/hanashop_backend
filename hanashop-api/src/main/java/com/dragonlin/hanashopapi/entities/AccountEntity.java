@@ -9,10 +9,10 @@ import javax.persistence.Table;
 
 @Entity
 @Data
-@Table(name = "tblAccounts")
+@Table(name = "tblaccounts")
 public class AccountEntity {
     @Id
-    @Column(columnDefinition = "userId")
+    @Column(name = "userId")
     private String id;
     private String name;
     private String email;

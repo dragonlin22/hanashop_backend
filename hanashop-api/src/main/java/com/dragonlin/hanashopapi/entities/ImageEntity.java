@@ -9,12 +9,12 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "Images")
+@Table(name = "images")
 public class ImageEntity {
     @Id
     private String id;
-    @Column(columnDefinition = "sourceAddress")
+    @Column(name = "sourceAddress")
     private String sourceAddres;
-    @Column(columnDefinition = "productId")
+    @Column(name = "productId")
     private String productId;
 }

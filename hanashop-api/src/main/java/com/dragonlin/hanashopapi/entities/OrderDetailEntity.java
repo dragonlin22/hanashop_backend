@@ -6,15 +6,15 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "tblOrderDetails")
+@Table(name = "tblorderdetails")
 @Data
 @IdClass(OrderDetailEntity.class)
 public class OrderDetailEntity implements Serializable {
     @Id
-    @Column(columnDefinition = "orderId")
+    @Column(name = "orderId")
     private String orderId;
     @Id
-    @Column(columnDefinition = "productId")
+    @Column(name = "productId")
     private String productId;
     private int quantity;
     private double price;

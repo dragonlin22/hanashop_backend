@@ -10,17 +10,17 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "tblProducts")
+@Table(name = "tblproducts")
 public class ProductEntity {
     @Id
     private String id;
     private String name;
     private String status;
-    @Column(columnDefinition = "createDate")
+    @Column(name = "createDate")
     private Date createAt;
     private int quantity;
     private double price;
-    @Column(columnDefinition = "categoryId")
+    @Column(name = "categoryId")
     private String categoryId;
     private String description;
 }

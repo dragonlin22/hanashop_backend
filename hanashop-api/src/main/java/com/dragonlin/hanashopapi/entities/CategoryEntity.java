@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Data
-@Table(name = "tblCategories")
+@Table(name = "tblcategories")
 public class CategoryEntity {
     @Id
     private String id;
